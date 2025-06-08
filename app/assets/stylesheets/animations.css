@@ -1,0 +1,50 @@
+/* Text animations */
+.animate-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.animate-text[data-animate="true"] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate-text[data-animate="true"].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image animations */
+.animate-image {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.animate-image[data-animate="true"] {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.animate-image[data-animate="true"].animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered animations for lists and groups */
+.animate-stagger > .animate-text[data-animate="true"]:nth-child(2) { transition-delay: 0.1s; }
+.animate-stagger > .animate-text[data-animate="true"]:nth-child(3) { transition-delay: 0.2s; }
+.animate-stagger > .animate-text[data-animate="true"]:nth-child(4) { transition-delay: 0.3s; }
+.animate-stagger > .animate-text[data-animate="true"]:nth-child(5) { transition-delay: 0.4s; }
+.animate-stagger > .animate-text[data-animate="true"]:nth-child(6) { transition-delay: 0.5s; }
+
+/* Smooth transitions for all animated elements */
+.animate-text,
+.animate-image {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+} 
